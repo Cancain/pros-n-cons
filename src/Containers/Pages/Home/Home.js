@@ -10,8 +10,9 @@ export default function Home() {
   const [postData, setPostData] = useState();
   const [postsIsLoaded, setPostsIsLoaded] = useState(false);
 
+  //Fetches the by by id 8 (the "home" page) and adds the data to state
   const fetchPageData = () => {
-    Axios.get(`v2/pages`)
+    Axios.get(`v2/pages/8`)
       .then(res => {
         setPageData(res.data);
         setPageIsLoaded(true);
@@ -19,6 +20,7 @@ export default function Home() {
       .catch(err => console.log(err));
   };
 
+  //Fetches all posts and stores the data in state
   const fetchPostData = () => {
     Axios.get(`v2/posts`)
       .then(res => {
@@ -29,14 +31,14 @@ export default function Home() {
   };
 
   useEffect(() => {
-    console.log("in useEffect");
     if (!pageIsLoaded) fetchPageData();
     if (!postsIsLoaded) fetchPostData();
   });
 
+  //If everything is loaded, renders the page and posts
   if (pageIsLoaded && postsIsLoaded) {
-    const title = pageData[0].title.rendered;
-    const content = pageData[0].content.rendered;
+    const title = pageData.title.rendered;
+    const content = pageData.content.rendered;
     return (
       <React.Fragment>
         <h1>{title}</h1>
@@ -55,5 +57,6 @@ export default function Home() {
       </React.Fragment>
     );
   }
+  //When the page is loading, displays a message
   return <h3>Loading...</h3>;
 }
