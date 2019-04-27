@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Axios from "../../../axios/Axios";
 
+import style from "./Home.module.css";
+
 export default function Home() {
   //State holding data for the page-content
   const [pageData, setPageData] = useState();
@@ -50,7 +52,7 @@ export default function Home() {
     const title = pageData.title.rendered;
     const content = pageData.content.rendered;
     return (
-      <React.Fragment>
+      <div className={style.Home}>
         <h1>{title}</h1>
         <div dangerouslySetInnerHTML={{ __html: content }} />
 
@@ -64,15 +66,15 @@ export default function Home() {
             </div>
           );
         })}
-      </React.Fragment>
+      </div>
     );
     //Displays an error message when data could not be fetched
   } else if (hasError) {
     return (
-      <React.Fragment>
+      <div className={style.Home}>
         <h3>Something went wrong, please try again later...</h3>
         <small>Error message: {errorMsg}</small>
-      </React.Fragment>
+      </div>
     );
   }
   //When the page is loading, displays a message
