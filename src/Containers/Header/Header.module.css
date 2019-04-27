@@ -1,0 +1,10 @@
+.Header {
+  background-color: gray;
+  position: relative;
+  height: 50px;
+  width: 100%;
+}
+
+.Header h4 {
+  margin: 0;
+}
