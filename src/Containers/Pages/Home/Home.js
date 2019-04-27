@@ -10,6 +10,10 @@ export default function Home() {
   const [postData, setPostData] = useState();
   const [postsIsLoaded, setPostsIsLoaded] = useState(false);
 
+  //State for error handling
+  const [hasError, setHasError] = useState(false);
+  const [errorMsg, setErrMsg] = useState(null);
+
   //Fetches the by by id 8 (the "home" page) and adds the data to state
   const fetchPageData = () => {
     Axios.get(`v2/pages/8`)
@@ -17,7 +21,10 @@ export default function Home() {
         setPageData(res.data);
         setPageIsLoaded(true);
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        setHasError(true);
+        setErrMsg(err.message);
+      });
   };
 
   //Fetches all posts and stores the data in state
@@ -27,7 +34,10 @@ export default function Home() {
         setPostData(res.data);
         setPostsIsLoaded(true);
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        setHasError(true);
+        setErrMsg(err.message);
+      });
   };
 
   useEffect(() => {
@@ -54,6 +64,14 @@ export default function Home() {
             </div>
           );
         })}
+      </React.Fragment>
+    );
+    //Displays an error message when data could not be fetched
+  } else if (hasError) {
+    return (
+      <React.Fragment>
+        <h3>Something went wrong, please try again later...</h3>
+        <small>Error message: {errorMsg}</small>
       </React.Fragment>
     );
   }
