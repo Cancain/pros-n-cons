@@ -1,9 +1,11 @@
 import React from "react";
 import Router from "../../hoc/Router/Router";
 
+import style from "./Content.module.css";
+
 const Content = props => {
   return (
-    <div>
+    <div className={style.Content}>
       <Router />
     </div>
   );

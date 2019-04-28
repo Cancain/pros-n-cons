@@ -1,2 +1,6 @@
 .Content {
+  /* background-color: #2b4a6f; */
+  color: #748ba7;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  font-size: 1.2rem;
 }

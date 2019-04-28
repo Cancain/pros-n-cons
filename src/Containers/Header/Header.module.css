@@ -1,8 +1,10 @@
 .Header {
-  background-color: gray;
+  background-color: #2b4a6f;
   position: relative;
-  height: 50px;
+  height: 70px;
   width: 100%;
+  z-index: 100;
+  border-bottom: 1px solid black;
 }
 
 .Header h4 {
