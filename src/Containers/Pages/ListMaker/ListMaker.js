@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Axios from "../../../axios/Axios";
 
+import Lists from "../../../Components/Lists/Lists";
+
 const ListMaker = props => {
   //State holding data for the page-content
   const [pageData, setPageData] = useState();
@@ -24,7 +26,6 @@ const ListMaker = props => {
   };
 
   useEffect(() => {
-    console.log("In useEffect");
     if (!pageDataIsLoaded) fetchPageData();
   });
 
@@ -36,6 +37,7 @@ const ListMaker = props => {
       <React.Fragment>
         <h3>{title}</h3>
         <div dangerouslySetInnerHTML={{ __html: content }} />
+        <Lists />
       </React.Fragment>
     );
 
