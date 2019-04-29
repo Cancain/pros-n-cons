@@ -9,8 +9,8 @@ const Lists = props => {
     <div className={style.Lists}>
       <Input width="75%" placeholder="Name of decision" />
       <div className={style.Wrapper}>
-        <List />
-        <List />
+        <List text="Pros" />
+        <List text="Cons" />
       </div>
     </div>
   );

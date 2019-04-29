@@ -18,8 +18,6 @@ const Input = props => {
       </select>
     );
 
-  console.log(props);
-
   switch (props.type) {
     case "input":
       return input;

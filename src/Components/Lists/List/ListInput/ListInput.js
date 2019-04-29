@@ -1,5 +1,4 @@
 import React from "react";
-import PrioSelector from "../../../UI/PrioSelector/PrioSelector";
 import Input from "../../../UI/Input/Input";
 
 import style from "./ListInput.module.css";
