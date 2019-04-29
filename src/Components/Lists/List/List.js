@@ -7,15 +7,20 @@ import style from "./List.module.css";
 const List = props => {
   const [numOfInputs, setNumOfInputs] = useState(1);
 
-  const renderInputs = () => {
-    for (let i = 0; i < numOfInputs; i++) {}
+  const items = [];
+  for (let i = 0; i < numOfInputs; i++) {
+    items.push(<ListInput key={i} />);
+  }
+
+  const incrementInputs = () => {
+    setNumOfInputs(numOfInputs + 1);
   };
 
   return (
     <div className={style.List}>
       <h3>{props.text}</h3>
       <Button clicked={() => console.log("click")} text="Add Reason" />
-      <ListInput />
+      {items}
     </div>
   );
 };
