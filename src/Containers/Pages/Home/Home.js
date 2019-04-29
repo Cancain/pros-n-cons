@@ -13,8 +13,8 @@ export default function Home() {
   const [postsIsLoaded, setPostsIsLoaded] = useState(false);
 
   //State for error handling
-  const [hasError, setHasError] = useState(false);
   const [errorMsg, setErrMsg] = useState(null);
+  const [hasError, setHasError] = useState(false);
 
   //Fetches the by by id 8 (the "home" page) and adds the data to state
   const fetchPageData = () => {
