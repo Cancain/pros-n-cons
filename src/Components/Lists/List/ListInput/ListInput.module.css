@@ -1,0 +1,4 @@
+.ListInput {
+  display: flex;
+  flex-flow: row;
+}

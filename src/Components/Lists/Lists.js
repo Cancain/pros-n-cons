@@ -7,7 +7,7 @@ import style from "./Lists.module.css";
 const Lists = props => {
   return (
     <div className={style.Lists}>
-      <Input placeholder="Name of decision" />
+      <Input width="75%" placeholder="Name of decision" />
       <div className={style.Wrapper}>
         <List />
         <List />

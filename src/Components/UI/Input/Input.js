@@ -5,7 +5,29 @@ const Input = props => {
     width: props.width,
     height: props.height
   };
-  return <input style={style} placeholder={props.placeholder} />;
+
+  const input = <input style={style} placeholder={props.placeholder} />;
+
+  let dropDown = null;
+  if (props.options)
+    dropDown = (
+      <select>
+        {props.options.map((option, index) => {
+          return <option key={index}>{option}</option>;
+        })}
+      </select>
+    );
+
+  console.log(props);
+
+  switch (props.type) {
+    case "input":
+      return input;
+    case "dropDown":
+      return dropDown;
+    default:
+      return input;
+  }
 };
 
 export default Input;
